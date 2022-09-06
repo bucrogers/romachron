@@ -1,3 +1,14 @@
+# Setting up
+
+## From a fresh git clone folder (one time)
+
+`npm install`
+
+## Each time starting the frontend 
+
+`npm start`
+
+# ORIGINAL boilerplate below
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
