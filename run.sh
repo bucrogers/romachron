@@ -15,6 +15,7 @@ else
   then
     open ${URL}
   elif which xdg-open > /dev/null
+  then
     xdg-open ${URL}
   elif which gnome-open > /dev/null
   then
