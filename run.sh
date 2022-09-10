@@ -7,8 +7,8 @@ if [ "$1" = "stop" ]
 then
   docker-compose down
 else
-  # Start server, frontend locally
-  docker-compose up -d
+  # Start server, frontend locally, build from source with layer caching
+  docker-compose up -d --build
 
   # Launch browser on frontend
   if which open > /dev/null

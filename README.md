@@ -14,7 +14,8 @@
 Roman digital clock, using Golang and React
 
 ## Run from Docker
-*Prequisite: Docker installed*
+* Prequisite: Docker installed
+* Pulls image from dockerhub if no local changes, otherwise builds from source with image layer caching
 ### Linux / MacOS
 ```
 ./run.sh
@@ -29,11 +30,6 @@ Roman digital clock, using Golang and React
 ```
 ./run.ps1 stop
 ```
-
-### Rebuild cached images (when code updated)
-```
-ocker-compose build
-````
 
 ## Run natively (without Docker)
 All instructions below assume brew package manager (available for macos and linux (including Windows WSL))
