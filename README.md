@@ -17,6 +17,11 @@ Roman digital clock, using golang and React
 ./run.ps1 stop
 ```
 
+## Rebuild cached images (when code updated)
+```
+docker-compose build
+````
+
 # Run natively (without Docker)
 All instructions below assume brew package manager (available for macos and linux (including Windows WSL))
 
