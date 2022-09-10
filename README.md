@@ -17,15 +17,24 @@ Roman digital clock, using Golang and React
 * Prequisite: Docker installed
 * Pulls image from dockerhub if no local changes, otherwise builds from source with image layer caching
 ### Linux / MacOS
+#### Fastest
 ```
 ./run.sh
 ```
+#### First build from source, with layer-caching
+```
+./run.sh --build
+```
+#### Stop
 ```
 ./run.sh stop
 ```
 ### Windows
 ```
 ./run.ps1
+```
+```
+./run.ps1 --build
 ```
 ```
 ./run.ps1 stop
@@ -35,7 +44,7 @@ Roman digital clock, using Golang and React
 All instructions below assume brew package manager (available for macos and linux (including Windows WSL))
 
 ### Prerequisites
-Tested on go 1.19, node 16.17.0. The steps below will install these or new versions.
+Tested on go 1.19, node 16.17.0. The steps below will install these or newer versions.
 
 ```
 brew install go

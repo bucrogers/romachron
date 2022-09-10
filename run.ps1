@@ -8,7 +8,7 @@ else {
     docker-compose pull
 
     # Start server, frontend locally, build from source with layer caching
-    docker-compose up -d --build
+    docker-compose up -d $args[0]
 
     # Launch browser on frontend
     Start-Process $URL
