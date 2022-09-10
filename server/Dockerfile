@@ -1,4 +1,4 @@
-FROM golang:buster as builder
+FROM golang:alpine as builder
 
 # Set the Current Working Directory inside the container
 WORKDIR /app
@@ -18,12 +18,7 @@ RUN go build -v -o server
 #Stage 2
 #######################################
 # Use the official Debian slim image for a lean production container.
-FROM debian:buster-slim
-
-# Install ca-certifactes
-RUN set -x && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    ca-certificates && \
-    rm -rf /var/lib/apt/lists/*
+FROM alpine:latest
 
 # Copy the binary to the production image from the builder stage.
 COPY --from=builder /app/server /app/server
