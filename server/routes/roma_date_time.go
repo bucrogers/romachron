@@ -28,6 +28,7 @@ func GetRomaDateTime(c *gin.Context) {
 	}
 
 	romaTime.DateExpression = utils.GetMonthDayExpression(int(tm.Month()), tm.Day(), tm.Year())
+	romaTime.DayExpression = utils.GetDayOfWeekExpression(int(tm.Month()), tm.Day(), tm.Year())
 
 	fmt.Println(tm)
 	c.JSON(http.StatusOK, romaTime)

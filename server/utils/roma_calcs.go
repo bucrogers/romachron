@@ -3,6 +3,7 @@ package utils
 import (
 	"fmt"
 	"strings"
+	"time"
 )
 
 func GetRomanNumber(x int) string {
@@ -39,11 +40,11 @@ func GetRomanMonth(x int) string {
 	return months[x-1]
 }
 
-// GetRomanDay get day of week (1-based)
-func GetRomanDay(x int) string {
-	days := [7]string{"Solis", "Lunae", "Martis", "Mercuris", "Jovis", "Veneris", "Saturni"}
+// GetRomanDayOfWeek get roman day of week (1-based, starting Sunday) as described at https://www.livescience.com/45432-days-of-the-week.html
+func GetRomanDayOfWeek(x int) string {
+	daysOfWeek := [7]string{"Solis", "Lunae", "Martis", "Mercurii", "Jovis", "Veneris", "Saturni"}
 
-	return days[x-1]
+	return daysOfWeek[x-1]
 }
 
 // GetDaysInMonth get number of days in specified (1-based) month and year
@@ -69,6 +70,14 @@ func GetNextMonthNumber(month int) int {
 	}
 }
 
+// GetDayOfWeekExpression in the form Dies <x>
+func GetDayOfWeekExpression(month int, day int, year int) string {
+	tm := time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
+	dayOfWeek := GetRomanDayOfWeek(int(tm.Weekday() + 1))
+
+	return fmt.Sprintf("dies %s", dayOfWeek)
+}
+
 // GetMonthDayExpression as described at https://www.wikihow.com/Write-in-Latin
 func GetMonthDayExpression(month int, day int, year int) string {
 
@@ -76,6 +85,8 @@ func GetMonthDayExpression(month int, day int, year int) string {
 	kalendesDays := [12]int{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 	nonesDays := [12]int{5, 5, 7, 5, 7, 5, 7, 5, 5, 7, 5, 5}
 	idesDays := [12]int{13, 13, 15, 13, 15, 13, 15, 13, 13, 15, 13, 13}
+
+	const inclusiveOffset = 1
 
 	const anteDiem = "ante diem"
 
@@ -91,16 +102,16 @@ func GetMonthDayExpression(month int, day int, year int) string {
 		ret = fmt.Sprintf("Ides %s", GetRomanMonth(month))
 	} else if day > idesDays[month-1] {
 		ret = fmt.Sprintf("%s %s Kalendis %s", anteDiem, strings.ToLower(GetRomanNumber(
-			GetDaysInMonth(month, year)-day+2)), GetRomanMonth(GetNextMonthNumber(month)))
+			GetDaysInMonth(month, year)-day+inclusiveOffset)), GetRomanMonth(GetNextMonthNumber(month)))
 		if GetNextMonthNumber(month) == 1 {
 			yearToUse++
 		}
 	} else if day > nonesDays[month-1] {
 		ret = fmt.Sprintf("%s %s Ides %s", anteDiem, strings.ToLower(GetRomanNumber(
-			idesDays[month-1]-day+2)), GetRomanMonth(month))
+			idesDays[month-1]-day+inclusiveOffset)), GetRomanMonth(month))
 	} else if day > kalendesDays[month-1] {
 		ret = fmt.Sprintf("%s %s Nones %s", anteDiem, strings.ToLower(GetRomanNumber(
-			nonesDays[month-1]-day+2)), GetRomanMonth(month))
+			nonesDays[month-1]-day+inclusiveOffset)), GetRomanMonth(month))
 	} else {
 		panic(fmt.Sprintf("unsupported month %d day %d combination", month, day))
 	}

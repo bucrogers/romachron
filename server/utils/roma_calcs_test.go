@@ -2,10 +2,9 @@ package utils_test
 
 import (
 	"fmt"
+	"github.com/stretchr/testify/assert"
 	"server/utils"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestRomanNumber(t *testing.T) {
@@ -23,9 +22,14 @@ func TestRomanMonth(t *testing.T) {
 	assert.Equal(t, "December", utils.GetRomanMonth(12))
 }
 
-func TestRomanDay(t *testing.T) {
-	assert.Equal(t, "Solis", utils.GetRomanDay(1))
-	assert.Equal(t, "Saturni", utils.GetRomanDay(7))
+func TestGetDayOfWeek(t *testing.T) {
+	assert.Equal(t, "Solis", utils.GetRomanDayOfWeek(1))
+	assert.Equal(t, "Saturni", utils.GetRomanDayOfWeek(7))
+}
+
+func TestGetDayOfWeekExpression(t *testing.T) {
+	fmt.Println(utils.GetRomanDayOfWeek(1))
+	fmt.Println(utils.GetRomanDayOfWeek(7))
 }
 
 func TestDaysInMonth(t *testing.T) {
@@ -34,7 +38,7 @@ func TestDaysInMonth(t *testing.T) {
 }
 
 func TestGetMonthDayExpression(t *testing.T) {
-	//approach here is to verify by inspection, and that there is no panic that occurs
+	//approach here is to verify by inspection, and that there is no panic that occurs during the full year iteration
 
 	// leap-year
 	fmt.Println(2, 28, 2000, utils.GetMonthDayExpression(2, 28, 2000))

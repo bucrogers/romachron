@@ -8,4 +8,5 @@ type RomaTime struct {
 	Sec         string `json:"sec"`
 
 	DateExpression string `json:"date_expression""`
+	DayExpression  string `json:"day_expression""`
 }

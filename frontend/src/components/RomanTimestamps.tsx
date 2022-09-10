@@ -25,7 +25,7 @@ function RomanTimestamps() {
               </td>
             </tr>
           </table>  
-          <h2>{posts.date_expression}</h2>
+          <h2>{posts.day_expression + ", " + posts.date_expression}</h2>
         </ul>
     );
 }
