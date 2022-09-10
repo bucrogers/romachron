@@ -34,7 +34,7 @@ COPY --from=builder /app/build .
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Declare container exposed port
-EXPOSE 3000
+EXPOSE 80
 
 # Run nginx with global directives and daemon off
 CMD ["nginx", "-g", "daemon off;"]
