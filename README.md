@@ -1,6 +1,22 @@
 # romachron
 Roman digital clock, using golang and React
 
+# Run from Docker
+## Linux / MacOS
+```
+./run.sh
+```
+```
+./run.sh stop
+```
+## Windows
+```
+./run.ps1
+```
+```
+./run.ps1 stop
+```
+
 # Run natively (without Docker)
 All instructions below assume brew package manager (available for macos and linux (including Windows WSL))
 
@@ -29,7 +45,5 @@ Tested on go 1.19, node 16.17.0. The steps below will install these or new versi
 
 `npm start`
 
-# Run from Docker
-TODO
 
 
