@@ -11,9 +11,10 @@
 </details>
 
 ## Introduction
-Roman digital clock, using golang and React
+Roman digital clock, using Golang and React
 
 ## Run from Docker
+*Prequisite: Docker installed*
 ### Linux / MacOS
 ```
 ./run.sh
@@ -31,13 +32,13 @@ Roman digital clock, using golang and React
 
 ### Rebuild cached images (when code updated)
 ```
-docker-compose build
+ocker-compose build
 ````
 
 ## Run natively (without Docker)
 All instructions below assume brew package manager (available for macos and linux (including Windows WSL))
 
-### Host prerequisites
+### Prerequisites
 Tested on go 1.19, node 16.17.0. The steps below will install these or new versions.
 
 ```
