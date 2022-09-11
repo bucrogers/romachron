@@ -1,18 +1,18 @@
 package routes
 
 import (
-	"fmt"
 	"net/http"
-	"server/models"
-	"server/utils"
 	"time"
 
 	"github.com/gin-gonic/gin"
+
+	"server/models"
+	"server/utils"
 )
 
 // get time in roman
 func GetRomaDateTime(c *gin.Context) {
-	tm := time.Now()
+	tm := time.Now().Local() // Local() required in container context
 
 	var romaTime models.RomaTime
 	romaTime.Hr = utils.GetRomanNumber(tm.Hour())
@@ -30,6 +30,5 @@ func GetRomaDateTime(c *gin.Context) {
 	romaTime.DateExpression = utils.GetMonthDayExpression(int(tm.Month()), tm.Day(), tm.Year())
 	romaTime.DayExpression = utils.GetDayOfWeekExpression(int(tm.Month()), tm.Day(), tm.Year())
 
-	fmt.Println(tm)
 	c.JSON(http.StatusOK, romaTime)
 }

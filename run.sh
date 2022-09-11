@@ -13,6 +13,8 @@ else
   docker-compose pull
 
   # Start server, frontend locally, build from source with layer caching
+  export DOCKER_TZ=$(ls -la /etc/localtime | cut -d '/' -f7-9)
+  echo "DOCKER_TZ: ${DOCKER_TZ}"
   docker-compose up -d $1
 
   # Launch browser on frontend

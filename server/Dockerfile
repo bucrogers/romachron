@@ -20,6 +20,10 @@ RUN go build -v -o server
 # Use the official Debian slim image for a lean production container.
 FROM alpine:latest
 
+
+# Add tzdata pkg to support TZ env var
+RUN apk add tzdata
+
 # Copy the binary to the production image from the builder stage.
 COPY --from=builder /app/server /app/server
 

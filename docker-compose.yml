@@ -2,6 +2,8 @@ version: '3'
 services:
   server:
     image: bucrogers26th/romachron-server:stable
+    environment:
+      - TZ=${DOCKER_TZ}
     build:
       context: ./server
     ports:
