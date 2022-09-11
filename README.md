@@ -15,7 +15,7 @@ Roman digital clock, using Golang and React
 
 ## Run from Docker
 * Prequisite: Docker installed
-* Pulls image from dockerhub if no local changes, otherwise builds from source with image layer caching
+* Pulls images from dockerhub by default. To build from local changes, specify --build
 ### Linux / MacOS
 #### Fastest
 ```
