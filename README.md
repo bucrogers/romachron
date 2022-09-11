@@ -13,6 +13,8 @@
 ## Introduction
 Roman digital clock, using Golang and React
 
+![](romachron-screenshot.png)
+
 ## Run from Docker
 * Prequisite: Docker installed
 * Pulls images from dockerhub by default. To build from local changes, specify --build
