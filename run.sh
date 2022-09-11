@@ -13,7 +13,7 @@ else
   docker-compose pull
 
   # Start server, frontend locally, build from source with layer caching
-  export DOCKER_TZ=$(ls -la /etc/localtime | cut -d '/' -f7-9)
+  export DOCKER_TZ=$(ls -la /etc/localtime | sed -r  "s/.*\/([^\/]+)\/([^\/]+)$/\1\/\2/")
   echo "DOCKER_TZ: ${DOCKER_TZ}"
   docker-compose up -d $1
 
