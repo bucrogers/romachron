@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# WSL note: For launch-browser behavior via xdg-open, install https://github.com/cpbotha/xdg-open-wsl
+
 URL=http://localhost:3000
 
 
