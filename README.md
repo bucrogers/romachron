@@ -16,35 +16,25 @@ Roman digital clock, using Golang and React
 ## Run from Docker
 * Prequisite: Docker installed
 * Pulls images from dockerhub by default. To build from local changes, specify --build
-### Linux / MacOS
-#### Fastest
+* For Windows (not using WSL / Bash), subsitute powershell script run.ps1 for run.sh below
+### Fastest launch
 ```
 ./run.sh
 ```
-#### First build from source, with layer-caching
+### Build from source, with layer-caching
 ```
 ./run.sh --build
 ```
-#### Stop
+### Stop
 ```
 ./run.sh stop
 ```
-### Windows
-```
-./run.ps1
-```
-```
-./run.ps1 --build
-```
-```
-./run.ps1 stop
-```
-
 ## Run natively (without Docker)
 All instructions below assume brew package manager (available for macos and linux (including Windows WSL))
 
 ### Prerequisites
-Tested on go 1.19, node 16.17.0. The steps below will install these or newer versions.
+* Tested on go 1.19, node 16.17.0. The steps below will install these or newer versions.
+* brew package manager assumed (available for MacOS, Linux / WSL)
 
 ```
 brew install go
