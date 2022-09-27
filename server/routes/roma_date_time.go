@@ -10,7 +10,7 @@ import (
 	"server/utils"
 )
 
-// get time in roman
+// GetRomaDateTime  get time in roman
 func GetRomaDateTime(c *gin.Context) {
 	tm := time.Now().Local() // Local() required in container context
 

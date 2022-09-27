@@ -6,11 +6,14 @@ import (
 	"time"
 )
 
+// GetRomanNumber get roman number
+//
+// Returns 'nihil' for zero
 func GetRomanNumber(x int) string {
-	roman_number_bases_dec := [...]int{1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000}
-	roman_letter_bases := [...]string{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"}
+	romanNumberBasesDec := [...]int{1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000}
+	romanLetterBases := [...]string{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"}
 
-	i := len(roman_number_bases_dec) - 1
+	i := len(romanNumberBasesDec) - 1
 	remainingNbr := x
 	ret := ""
 
@@ -20,11 +23,11 @@ func GetRomanNumber(x int) string {
 	}
 
 	for remainingNbr > 0 {
-		div := remainingNbr / roman_number_bases_dec[i]
-		remainingNbr = remainingNbr % roman_number_bases_dec[i]
+		div := remainingNbr / romanNumberBasesDec[i]
+		remainingNbr = remainingNbr % romanNumberBasesDec[i]
 
 		for div > 0 {
-			ret += roman_letter_bases[i]
+			ret += romanLetterBases[i]
 			div--
 		}
 		i--

@@ -4,13 +4,15 @@
 
 URL=http://localhost:3000
 
-
 if [ "$1" = "stop" ]
 then
   docker-compose down
 else
-  # Pull image if not already present
-  docker-compose pull
+  if [ "$1" != "--build" ]
+  then
+    # Pull image if not already present
+    docker-compose pull
+  fi
 
   # Start server, frontend locally, build from source with layer caching
   export DOCKER_TZ=$(ls -la /etc/localtime | sed -r  "s/.*\/([^\/]+)\/([^\/]+)$/\1\/\2/")

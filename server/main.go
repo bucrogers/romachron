@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// main start api server
 func main() {
 
 	port := "8080"
