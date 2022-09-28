@@ -32,7 +32,7 @@ Roman digital clock, using Golang and React
 ./run.sh stop
 ```
 ## Run natively (without Docker)
-All instructions below assume brew package manager (available for macos and linux (including Windows WSL))
+All instructions below assume brew package manager (available for MacOS and Linux (including Windows WSL)
 
 ### Prerequisites
 * Tested on go 1.19, node 16.17.0. The steps below will install these or newer versions.
